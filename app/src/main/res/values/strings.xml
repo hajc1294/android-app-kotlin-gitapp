@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BiometryExample</string>
+    <string name="title_activity_data">DataActivity</string>
+
+    <string name="user">Usuario</string>
+    <string name="token">Github token</string>
+    <string name="login">Ingresar</string>
+    <string name="fingerprint">Ingresar con huella</string>
+
+    <string name="biometric_auth">Autenticación biométrica</string>
+    <string name="biometric_sensor">Pon tu huella dactilar en el sensor biométrico</string>
+
+    <string name="loading">Cargando</string>
+    <string name="welcome">Bienvenido</string>
+
+    <string name="input_error">Espacio requerido.</string>
+    <string name="title_activity_user">UserActivity</string>
+</resources>
