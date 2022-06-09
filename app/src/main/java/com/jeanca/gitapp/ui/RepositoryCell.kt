@@ -18,6 +18,29 @@ class RepositoryCell {
 
     companion object {
 
+        /**
+         *
+         */
+        @Composable
+        private fun GetText(text: String) = Row {
+            Text(text)
+            Spacer(modifier = Modifier.width(10.dp))
+        }
+
+        /**
+         *
+         */
+        @Composable
+        private fun GetImage(res: Int, color: Color, size: Int = 15) = Row {
+            Composables.SizedImage(res,
+                color = color,
+                size = size)
+            Spacer(modifier = Modifier.width(5.dp))
+        }
+
+        /**
+         *
+         */
         @Composable
         fun Init(repository: MRepository) = Column(modifier =
             Modifier.padding(start = 20.dp, end = 20.dp))
@@ -45,20 +68,6 @@ class RepositoryCell {
             }
             Spacer(modifier = Modifier.height(10.dp))
             Composables.SingleDivider()
-        }
-
-        @Composable
-        private fun GetText(text: String) = Row {
-            Text(text)
-            Spacer(modifier = Modifier.width(10.dp))
-        }
-
-        @Composable
-        private fun GetImage(res: Int, color: Color, size: Int = 15) = Row {
-            Composables.CreateImage(res,
-                color = color,
-                size = size)
-            Spacer(modifier = Modifier.width(5.dp))
         }
     }
 }

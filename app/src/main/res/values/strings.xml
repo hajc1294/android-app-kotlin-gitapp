@@ -13,6 +13,11 @@
     <string name="loading">Cargando</string>
     <string name="welcome">Bienvenido</string>
 
+    <string name="account">Cuenta</string>
+    <string name="public_repos">%d repositorio(s) públicos</string>
+    <string name="created_at">Creado el %s</string>
+    <string name="change_account">Cambiar cuenta</string>
+
     <string name="input_error">Espacio requerido.</string>
     <string name="title_activity_user">UserActivity</string>
 </resources>

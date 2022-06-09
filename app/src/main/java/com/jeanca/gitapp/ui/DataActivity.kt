@@ -1,6 +1,5 @@
 package com.jeanca.gitapp.ui
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -22,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jeanca.gitapp.R
+import com.jeanca.gitapp.local.StoredData
 import com.jeanca.gitapp.models.MRepository
 import com.jeanca.gitapp.ui.aux.Composables
 import com.jeanca.gitapp.ui.theme.GitAppTheme
@@ -31,13 +31,15 @@ import com.jeanca.gitapp.viewmodels.DataViewModel
 class DataActivity : AppCompatActivity() {
 
     private var dataViewModel: DataViewModel = DataViewModel()
+    private lateinit var storedData: StoredData
 
-    init {
-        dataViewModel.getEpisodes()
-    }
-
+    /**
+     *
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        storedData = StoredData(this)
+        dataViewModel.getRepositories(storedData.getUsername(), storedData.getToken())
         setContent {
             GitAppTheme {
                 Surface(
@@ -50,21 +52,32 @@ class DataActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     *
+     */
     private fun navigateToUserInfo() {
         this.startActivity(Intent(this, UserActivity::class.java))
     }
 
+    /**
+     *
+     */
     @Composable
     fun NavButton(res: Int, function: () -> Unit) = TextButton(onClick = { function() }) {
-        Composables.CreateImage(res, size = 40)
+        Composables.SizedImage(res, size = 40)
     }
 
+    /**
+     *
+     */
     @Composable
     fun Body() {
 
-        val mContext = LocalContext.current
         val data: List<MRepository> by dataViewModel.getData().observeAsState(emptyList())
 
+        ///
+        ///
+        ///
         Column {
             if (data.isEmpty()) {
                 Alerts.Loading()
@@ -103,6 +116,9 @@ class DataActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     *
+     */
     @Preview(showSystemUi = true)
     @Composable
     fun DefaultPreview() {

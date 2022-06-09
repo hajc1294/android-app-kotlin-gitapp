@@ -14,12 +14,18 @@ class DataViewModel: BaseViewModel() {
     private var status: MutableLiveData<Status> = MutableLiveData()
     private var data: MutableLiveData<List<MRepository>> = MutableLiveData()
 
+    /**
+     *
+     */
     fun getData(): LiveData<List<MRepository>> = data
 
-    fun getEpisodes() {
+    /**
+     *
+     */
+    fun getRepositories(username: String, token: String) {
         status.value = Status.LOADING
-        compositeDisposable.add(ApiProvider.provider("token")
-            .getRepositories("user:user")
+        compositeDisposable.add(ApiProvider.provider(token)
+            .getRepositories("user:${username}")
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
