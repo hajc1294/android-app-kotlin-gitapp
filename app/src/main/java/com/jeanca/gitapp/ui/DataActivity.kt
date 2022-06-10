@@ -20,7 +20,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.gson.Gson
 import com.jeanca.gitapp.R
+import com.jeanca.gitapp.common.Constants.PARAM
 import com.jeanca.gitapp.local.StoredData
 import com.jeanca.gitapp.models.MRepository
 import com.jeanca.gitapp.ui.aux.Composables
@@ -63,7 +65,9 @@ class DataActivity : AppCompatActivity() {
      *
      */
     @Composable
-    fun NavButton(res: Int, function: () -> Unit) = TextButton(onClick = { function() }) {
+    fun NavButton(res: Int, callback: () -> Unit) = TextButton(onClick = {
+        callback()
+    }) {
         Composables.SizedImage(res, size = 40)
     }
 
@@ -73,7 +77,8 @@ class DataActivity : AppCompatActivity() {
     @Composable
     fun Body() {
 
-        val data: List<MRepository> by dataViewModel.getData().observeAsState(emptyList())
+        val mContext = LocalContext.current
+        val data: List<MRepository> by dataViewModel.repositories().observeAsState(emptyList())
 
         ///
         ///
@@ -96,7 +101,9 @@ class DataActivity : AppCompatActivity() {
                         fontSize = 30.sp)
                     Spacer(modifier = Modifier.height(15.dp))
                 }
-                Column(modifier = Modifier.fillMaxWidth()
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
                     .background(colorResource(id = R.color.input_disable))
                     .padding(20.dp)
                     .verticalScroll(rememberScrollState())
@@ -106,7 +113,13 @@ class DataActivity : AppCompatActivity() {
                         shape = RoundedCornerShape(10.dp)) {
                         Column {
                             data.forEachIndexed { _, item ->
-                                RepositoryCell.Init(repository = item)
+                                TextButton(onClick = {
+                                    val intent = Intent(mContext, RepositoryDetailActivity::class.java)
+                                    intent.putExtra(PARAM, Gson().toJson(item))
+                                    mContext.startActivity(intent)
+                                }) {
+                                    RepositoryCell.Init(repository = item)
+                                }
                             }
                         }
                     }

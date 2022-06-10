@@ -16,14 +16,20 @@
         android:theme="@style/Theme.GitApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.RepositoryDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.GitApp"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".ui.UserActivity"
             android:exported="false"
-            android:label="@string/title_activity_user"
-            android:theme="@style/Theme.GitApp" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.GitApp"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.DataActivity"
             android:exported="false"
-            android:label="@string/title_activity_data"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GitApp"
             tools:ignore="LockedOrientationActivity" />

@@ -12,5 +12,5 @@ class MRepository (
     @SerializedName("stargazers_count") @Expose val stargazersCount: Int,
     @SerializedName("language") @Expose val language: String,
     @SerializedName("forks") @Expose val forks: Int,
-    //var owner = MOwner()
+    @SerializedName("owner") @Expose val owner: MOwner
 )

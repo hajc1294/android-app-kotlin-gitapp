@@ -30,6 +30,22 @@ class Composables {
          *
          */
         @Composable
+        fun BackButton(callback: () -> Unit) = TextButton(onClick = {
+            callback()
+        }) {
+            Row {
+                Composables.SizedImage(R.drawable.ic_baseline_arrow_back_ios,
+                    color = Color.Red,
+                    size = 20)
+                Text(text = stringResource(id = R.string.welcome),
+                    color = Color.Red)
+            }
+        }
+
+        /**
+         *
+         */
+        @Composable
         fun RoundImageWithDetail(avatar: String, userFullName: String, url: String) = Column(modifier = Modifier
             .padding(start = 25.dp, end = 25.dp)
             .fillMaxWidth(),

@@ -55,22 +55,6 @@ class UserActivity : AppCompatActivity() {
      *
      */
     @Composable
-    fun BackButton() = TextButton(onClick = {
-        finish()
-    }) {
-        Row {
-            Composables.SizedImage(R.drawable.ic_baseline_arrow_back_ios,
-                color = Color.Red,
-                size = 20)
-            Text(text = stringResource(id = R.string.welcome),
-                color = Color.Red)
-        }
-    }
-
-    /**
-     *
-     */
-    @Composable
     fun UserInfoSections(dataSet: List<Pair<Int, String?>>) = Column(modifier = Modifier
         .padding(start = 35.dp, end = 35.dp)
         .fillMaxWidth()) {
@@ -96,7 +80,7 @@ class UserActivity : AppCompatActivity() {
 
         Column {
             Spacer(modifier = Modifier.height(10.dp))
-            BackButton()
+            Composables.BackButton(::finish)
             Spacer(Modifier.height(25.dp))
             Text(modifier = Modifier.padding(start = 25.dp, end = 25.dp),
                 text = stringResource(id = R.string.account),

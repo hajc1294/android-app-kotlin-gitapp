@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">BiometryExample</string>
-    <string name="title_activity_data">DataActivity</string>
+    <string name="app_name">GitApp</string>
 
     <string name="user">Usuario</string>
     <string name="token">Github token</string>
@@ -19,5 +18,4 @@
     <string name="change_account">Cambiar cuenta</string>
 
     <string name="input_error">Espacio requerido.</string>
-    <string name="title_activity_user">UserActivity</string>
 </resources>

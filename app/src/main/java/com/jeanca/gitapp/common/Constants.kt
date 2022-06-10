@@ -6,4 +6,5 @@ object Constants {
     const val USER_TAG = "username"
     const val TOKEN_TAG = "token"
     const val EXIT = "EXIT"
+    const val PARAM = "REPO"
 }
