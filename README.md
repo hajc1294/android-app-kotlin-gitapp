@@ -19,7 +19,7 @@ Los servicios que se consumen son los siguientes:
 
 Se debe de enviar el token de usuario en el **HEADER** del request (Bearer ghp_XXXXXXXXXXXXXXXX...) para el field **Authorization**.
 
-Para almacenar los datos de utiliza **UserDefaults** (usuario) y **Keychain** (github token).
+Para almacenar los datos de utiliza **Shared Preferences**.
 
 ### Como se ve?
 <img src="https://user-images.githubusercontent.com/61942641/173165385-817e2639-a09e-4890-8963-0a8e0481308f.png" width="250">   <img src="https://user-images.githubusercontent.com/61942641/173165384-9deed020-cf23-42ab-be79-de0856180432.png" width="250">   <img src="https://user-images.githubusercontent.com/61942641/173165382-6407446b-6854-4267-97df-b8ed8151a205.png" width="250">
