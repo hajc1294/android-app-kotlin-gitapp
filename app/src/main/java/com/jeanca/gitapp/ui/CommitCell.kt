@@ -14,6 +14,8 @@ import com.jeanca.gitapp.models.MCommit
 import com.jeanca.gitapp.models.MRepository
 import com.jeanca.gitapp.ui.aux.Composables
 import com.jeanca.gitapp.utils.Colors
+import com.jeanca.gitapp.utils.extensions.toDate
+import com.jeanca.gitapp.utils.extensions.toStringFormat
 
 class CommitCell {
 
@@ -38,7 +40,7 @@ class CommitCell {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.End)
             {
-                Text(text = commit.commit.author.date,
+                Text(text = commit.commit.author.date.toDate().toStringFormat(),
                     fontSize = 10.sp)
             }
             Spacer(modifier = Modifier.height(10.dp))
